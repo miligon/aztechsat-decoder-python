@@ -104,7 +104,7 @@
       </rect>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>4</number>
      </property>
      <widget class="QWidget" name="tabEPS">
       <attribute name="title">
@@ -116,7 +116,7 @@
          <x>0</x>
          <y>0</y>
          <width>531</width>
-         <height>311</height>
+         <height>291</height>
         </rect>
        </property>
       </widget>
@@ -131,7 +131,7 @@
          <x>0</x>
          <y>0</y>
          <width>531</width>
-         <height>311</height>
+         <height>291</height>
         </rect>
        </property>
       </widget>
@@ -146,7 +146,7 @@
          <x>0</x>
          <y>0</y>
          <width>531</width>
-         <height>311</height>
+         <height>291</height>
         </rect>
        </property>
       </widget>
@@ -161,7 +161,7 @@
          <x>0</x>
          <y>0</y>
          <width>531</width>
-         <height>311</height>
+         <height>291</height>
         </rect>
        </property>
       </widget>
@@ -176,7 +176,7 @@
          <x>0</x>
          <y>0</y>
          <width>531</width>
-         <height>311</height>
+         <height>291</height>
         </rect>
        </property>
       </widget>
@@ -187,8 +187,8 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>59</width>
-       <height>15</height>
+       <width>141</width>
+       <height>16</height>
       </rect>
      </property>
      <property name="text">
@@ -198,10 +198,10 @@
     <widget class="QLabel" name="lblFrameNumber">
      <property name="geometry">
       <rect>
-       <x>450</x>
+       <x>418</x>
        <y>20</y>
-       <width>59</width>
-       <height>15</height>
+       <width>91</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
@@ -392,7 +392,7 @@
   </action>
   <action name="actionOPen_HEX_string_file">
    <property name="text">
-    <string>OPen HEX string file ...</string>
+    <string>Open HEX string file ...</string>
    </property>
   </action>
   <action name="actionExit">
