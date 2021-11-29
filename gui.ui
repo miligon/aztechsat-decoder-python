@@ -257,7 +257,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>SEND</string>
+      <string>UPLOAD</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_4">

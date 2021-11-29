@@ -1,6 +1,80 @@
 import struct
 import json
 
+significado={
+    "ax100_hk":{
+        "temp_pa": "Power amplifier temperature [tenth of °C]",
+        "last_rssi":"Last RSSI",
+        "bgnd_rssi":"GND RSSI"
+    },
+    "p31u_hk":{
+        "vboost":"Power converters voltage [mV] [PV1, PV2, PV3]",
+        "vbatt":"Battery voltage [mV]",
+        "curin":"Current in [mA]",
+        "cursun":"Boost converters current [mA]",
+        "cursys":"Battery's output current [mA]",
+        "curout":"Output current [mA]",
+        "output":"Output channels status [0 or 1]",
+        "wdt_i2c_time_left":"I2C wdt time left [s]",
+        "wdt_gnd_time_left":"GND wdt time left [s]",
+        "counter_wdt_gnd":"WDT GND reboot number",
+        "temp":"Temperature sensor"
+
+    },
+    "a3200_hk":{
+        "temp_a":"Temperature Sensor °C value",
+        "cur_pwm":"PWM current",
+        "boot_cause":"Last OBC reboot cause",
+        "magneto_x":"Magnetometer - X axis",
+        "magneto_y":"Magnetometer - Y axis",
+        "magneto_z":"Magnetometer - Z axis",
+        "gyro_x":"Gyro - X axis",
+        "gyro_y":"Gyro - Y axis",
+        "gyro_z":"Gyro - Z axis"
+    },
+    "pyl_hk":{
+        "channel":"# of Channel",
+        "no_of_bursts":"# of Bursts",
+        "min_interval":"Minimum Burst Interval: Units of 5 seconds. Valid values are: 0x01 thru 0x3C (5 to 300 seconds)",
+        "max_interval":"Maximum Burst Interval: Units of 5 seconds. Valid values are: 0x02 thru 0x78 (10 to 600 seconds)",
+        "status":{
+            "GpsSubsystemActive" :"GPS subsystem active",
+            "ActiveMode" :"Device is in an active mode",
+            "Reserved1" :"RESERVED DO NOT USE",
+            "GpsFix" :"GPS Subsystem does have a fix",
+            "GpsSubsystemFailure" :"GPS Subsystem failure",
+            "SimplexTransmitterFailure" :"Simplex Transmitter failure",
+            "BatteryLow" :"Battery low",
+            "Reserved2" :"RESERVED DO NOT USE"
+        },
+        "seconds_since_last_transmission":"Number of seconds since the Device unit last attempted to send a satellite transmission.",
+        "seconds_until_next_transmission":"Number of seconds until the Device unit attempts to send a satellite transmission.",
+        "packet_size":"Packet size of last or current message.",
+        "burst_number":"Currently waiting on or sending burst number",
+        "seconds_until_burst_2":"Number of seconds until burst transmission number 2",
+        "seconds_until_burst_3":"Number of seconds until burst transmission number 3",
+        "total_tx_messages_current_mode":"Total messages transmitted in current mode.",
+        "total_tx_packet_since_power_on":"Total Packet transmission count since hard power on.",
+        "stingr_antenna_temp":"Stingr Antenna temperature",
+        "lm70_temp":"Aguila Board temperature"
+    },
+    "adcs_hk":{
+        "css":"Coarse Sun Sensors Value [order is +Y, +X, -X, -Y, -Z]",
+        "panel_y_pos_temp":"Solar panel's temperature +Y",
+        "panel_x_pos_temp":"Solar panel's temperature +X",
+        "panel_x_neg_temp":"Solar panel's temperature -X",
+        "panel_y_neg_temp":"Solar panel's temperature -Y",
+        "panel_z_neg_temp":"Solar panel's temperature -Z",
+        "status_bdot":"Bdot status [1:tumble2detumble, 0:valid, -1:no sample, -2:no previous sample -3:detumble2tumble]",
+        "bdot_rate_slow":"Bdot value from low-pass filter slow",
+        "bdot_rate_slow_2":"Bdot value from low-pass filter slow2",
+        "bdot_detumb":"Value of detumbled state [0 for \"not detumbled\", 1 for \"detumbled\"]"
+    },
+    "metadata":{
+        "clock_from_satellite":"Clock in unix format from the satelite"
+    }
+}
+
 class Decoder():
     def __init__(self,data):
         self.data = data
@@ -37,8 +111,8 @@ class Decoder():
         decoded = json.loads(self.decode_to_json())
         dumped = []
         for data in decoded[key]:
-            dumped.append([data,str(decoded[key][data])])
-        print(dumped)
+            dumped.append([data,str(decoded[key][data]),significado[key][data]])
+        #print(dumped)
         return dumped
 
     def decode_to_json(self):
@@ -131,6 +205,9 @@ def read_file(ruta):
         inicio = (byte.find(b'<HK>'))
         fin = (byte.find(b'</HK>'))
         return byte[inicio+4:fin]
+    else:
+        print("Frame Invalido")
+        return "NO DATA"
 
 def read_file_csv(ruta):
     file = open(ruta, "r")

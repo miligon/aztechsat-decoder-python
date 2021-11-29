@@ -158,7 +158,7 @@ class Ui_MainWindow(object):
         self.lblStatus.setText(_translate("MainWindow", "No data!"))
         self.lblFrameNumber.setText(_translate("MainWindow", "No data!"))
         self.lblName.setText(_translate("MainWindow", "Observer (name or callsign):"))
-        self.btnSend.setText(_translate("MainWindow", "SEND"))
+        self.btnSend.setText(_translate("MainWindow", "UPLOAD"))
         self.label_4.setText(_translate("MainWindow", "Share your capture with us!"))
         self.lblName_2.setText(_translate("MainWindow", "Location (optional) :"))
         self.lblName_3.setText(_translate("MainWindow", "Contact mail (optional):"))
