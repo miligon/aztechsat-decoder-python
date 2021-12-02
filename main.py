@@ -40,7 +40,7 @@ class Decoder_Form(QtWidgets.QMainWindow, Ui_MainWindow):
         self.actionAbout.triggered.connect(self.about)
         self.actionOPen_HEX_string_file.triggered.connect(self.openFileHEX)
         self.actionOpen_bin_file.triggered.connect(self.openFileBin)
-        self.btnSend.clicked.connect(self.sendToServer)
+        #self.btnSend.clicked.connect(self.sendToServer)
     
     def sendToServer(self):
         QMessageBox.about(self, "AztechSat-1 decoder", "Sorry, this doesn't work yet! :/")
