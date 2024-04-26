@@ -1,7 +1,7 @@
 # Telemetry decoder for the AztechSat-1
 
-This project was built to decode AztechSat-1 telemetry data.  This satellite was launched in Feb 2019 by the UPAEP (Universidad Autónoma del Estado de Puebla) and reamianed functional until Dec 2021.
-The data emited by the satellite was collected and processed. An analysis about the collected data was published on: https://doi.org/10.3390/aerospace10110973
+
+This project was developed to decode AztechSat-1 telemetry data. The satellite was launched in February 2019 by UPAEP (Universidad Autónoma del Estado de Puebla) and remained functional until December 2021. The emitted data from the satellite was collected and processed. An analysis of the collected data was published and can be consulted here: https://doi.org/10.3390/aerospace10110973
 
 AztechSat-1: https://www.n2yo.com/satellite/?s=45261
 
